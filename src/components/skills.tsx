@@ -45,7 +45,7 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
   }, [isVisible, level]);
 
   return (
-    <div ref={elementRef} className="animate-on-scroll">
+    <div ref={elementRef} className={`animate-on-scroll ${isVisible ? 'visible' : ''}`}>
       <div className="flex justify-between mb-1">
         <span className="font-medium">{name}</span>
         <span className="text-muted-foreground">{level}%</span>
