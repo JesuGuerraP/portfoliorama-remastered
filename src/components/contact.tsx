@@ -5,9 +5,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { useLanguage } from '@/components/language-provider';
 
 export function Contact() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -31,14 +33,14 @@ export function Contact() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       toast({
-        title: "Mensaje enviado",
-        description: "¡Gracias por contactarme! Te responderé lo antes posible.",
+        title: t("contact.form.success"),
+        description: t("contact.form.success"),
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        title: t("contact.form.error"),
+        description: t("contact.form.error"),
         variant: "destructive",
       });
     } finally {
@@ -50,10 +52,10 @@ export function Contact() {
     <section id="contact" className="section-padding">
       <div className="container-tight">
         <h2 className="text-3xl font-bold text-center mb-4">
-          <span className="text-accent">Contáctame</span>
+          <span className="text-accent">{t("contact.title")}</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          ¿Tienes un proyecto en mente o quieres hablar sobre oportunidades laborales? ¡Envíame un mensaje!
+          {t("contact.subtitle")}
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -63,7 +65,7 @@ export function Contact() {
                 <Input
                   id="name"
                   name="name"
-                  placeholder="Tu nombre"
+                  placeholder={t("contact.form.name")}
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -74,7 +76,7 @@ export function Contact() {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="Tu correo electrónico"
+                  placeholder={t("contact.form.email")}
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -84,7 +86,7 @@ export function Contact() {
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Tu mensaje"
+                  placeholder={t("contact.form.message")}
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -96,7 +98,7 @@ export function Contact() {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
               </Button>
             </form>
           </div>
@@ -104,12 +106,12 @@ export function Contact() {
           <div className="flex flex-col justify-center">
             <div className="space-y-8">
               <div className="bg-card p-6 rounded-lg border">
-                <h3 className="font-semibold text-lg mb-4">Información de contacto</h3>
+                <h3 className="font-semibold text-lg mb-4">{t("contact.info.title")}</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <Mail className="w-5 h-5 mt-1 mr-3 text-accent" />
                     <div>
-                      <p className="font-medium">Email</p>
+                      <p className="font-medium">{t("contact.info.email")}</p>
                       <a href="mailto:tu.email@ejemplo.com" className="text-muted-foreground hover:text-accent">
                         tu.email@ejemplo.com
                       </a>
@@ -118,7 +120,7 @@ export function Contact() {
                   <div className="flex items-start">
                     <Phone className="w-5 h-5 mt-1 mr-3 text-accent" />
                     <div>
-                      <p className="font-medium">Teléfono</p>
+                      <p className="font-medium">{t("contact.info.phone")}</p>
                       <a href="tel:+1234567890" className="text-muted-foreground hover:text-accent">
                         +123 456 7890
                       </a>
@@ -128,7 +130,7 @@ export function Contact() {
               </div>
 
               <div className="bg-card p-6 rounded-lg border">
-                <h3 className="font-semibold text-lg mb-4">Redes sociales</h3>
+                <h3 className="font-semibold text-lg mb-4">{t("contact.social.title")}</h3>
                 <div className="flex flex-col gap-4">
                   <a 
                     href="https://linkedin.com/in/tu-perfil" 

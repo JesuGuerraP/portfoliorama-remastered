@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 export interface Project {
   id: string;
@@ -77,12 +78,13 @@ const projects: Project[] = [
 
 export function Projects() {
   const [filter, setFilter] = useState<string>("all");
+  const { t } = useLanguage();
   
   const categories = [
-    { id: "all", name: "Todos" },
-    { id: "frontend", name: "Frontend" },
-    { id: "backend", name: "Backend" },
-    { id: "fullstack", name: "Full Stack" },
+    { id: "all", name: t("projects.categories.all") },
+    { id: "frontend", name: t("projects.categories.frontend") },
+    { id: "backend", name: t("projects.categories.backend") },
+    { id: "fullstack", name: t("projects.categories.fullstack") },
   ];
 
   const filteredProjects = filter === "all" 
@@ -93,10 +95,10 @@ export function Projects() {
     <section id="projects" className="section-padding bg-secondary/30 dark:bg-secondary/10">
       <div className="container-tight">
         <h2 className="text-3xl font-bold text-center mb-4">
-          Mis <span className="text-accent">Proyectos</span>
+          {t("projects.title")}
         </h2>
         <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Una selección de mis trabajos recientes, personales y profesionales.
+          {t("projects.subtitle")}
         </p>
 
         <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -150,7 +152,7 @@ export function Projects() {
                         className="flex items-center gap-1"
                       >
                         <Github className="h-4 w-4" />
-                        Código
+                        {t("projects.code")}
                       </a>
                     </Button>
                   )}
@@ -163,7 +165,7 @@ export function Projects() {
                         className="flex items-center gap-1"
                       >
                         <ExternalLink className="h-4 w-4" />
-                        Demo
+                        {t("projects.demo")}
                       </a>
                     </Button>
                   )}

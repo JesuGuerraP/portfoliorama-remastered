@@ -3,6 +3,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useTheme } from "@/components/theme-provider";
 import { useState, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
+import { useLanguage } from "@/components/language-provider";
 
 export interface Skill {
   name: string;
@@ -59,17 +60,19 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
 };
 
 export function Skills() {
+  const { t } = useLanguage();
+  
   const categories = [
-    { id: "frontend", name: "Frontend" },
-    { id: "backend", name: "Backend" },
-    { id: "tools", name: "Herramientas" },
+    { id: "frontend", name: t("skills.frontend") },
+    { id: "backend", name: t("skills.backend") },
+    { id: "tools", name: t("skills.tools") },
   ];
 
   return (
     <section id="skills" className="section-padding">
       <div className="container-tight">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Mis <span className="text-accent">Habilidades</span>
+          {t("skills.title")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,15 +93,15 @@ export function Skills() {
           ))}
 
           <div className="bg-card rounded-lg p-6 shadow-sm dark:shadow-accent/5 border">
-            <h3 className="text-xl font-semibold mb-4">Soft Skills</h3>
+            <h3 className="text-xl font-semibold mb-4">{t("skills.soft")}</h3>
             <ul className="list-disc list-inside space-y-2">
-              <li>Trabajo en equipo</li>
-              <li>Comunicación efectiva</li>
-              <li>Resolución de problemas</li>
-              <li>Pensamiento analítico</li>
-              <li>Aprendizaje rápido</li>
-              <li>Adaptabilidad</li>
-              <li>Gestión del tiempo</li>
+              <li>{t("skills.teamwork")}</li>
+              <li>{t("skills.communication")}</li>
+              <li>{t("skills.problemSolving")}</li>
+              <li>{t("skills.analytical")}</li>
+              <li>{t("skills.fastLearning")}</li>
+              <li>{t("skills.adaptability")}</li>
+              <li>{t("skills.timeManagement")}</li>
             </ul>
           </div>
         </div>

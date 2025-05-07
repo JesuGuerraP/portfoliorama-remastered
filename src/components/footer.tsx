@@ -1,6 +1,9 @@
 
+import { useLanguage } from "@/components/language-provider";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   return (
     <footer className="bg-secondary/80 dark:bg-secondary/20 py-8">
@@ -11,16 +14,16 @@ export function Footer() {
               <span className="text-accent">Jesús</span> Guerra
             </p>
             <p className="text-sm text-muted-foreground">
-              Desarrollador Web Full Stack
+              {t("hero.role")}
             </p>
           </div>
           
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              &copy; {currentYear} Todos los derechos reservados
+              &copy; {currentYear} {t("footer.rights")}
             </p>
             <p className="text-xs mt-1 text-muted-foreground">
-              Diseñado y desarrollado con ❤️
+              {t("footer.designed")}
             </p>
           </div>
         </div>

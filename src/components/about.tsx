@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 export function About() {
+  const { t } = useLanguage();
+  
   return (
     <section id="about" className="section-padding bg-secondary/50 dark:bg-secondary/20">
       <div className="container-tight">
@@ -16,32 +19,26 @@ export function About() {
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full flex items-center justify-center text-white font-bold">
-                <span>5+ años</span>
+                <span>5+ {t("about.experience")}</span>
               </div>
             </div>
           </div>
           <div className="md:w-3/5">
             <h2 className="text-3xl font-bold mb-6">
-              Sobre <span className="text-accent">mí</span>
+              {t("about.title")} <span className="text-accent">mí</span>
             </h2>
             <p className="mb-4">
-              Soy un desarrollador web full stack con más de 5 años de experiencia,
-              especializado en crear experiencias digitales excepcionales. Mi enfoque
-              combina diseño visualmente atractivo con código limpio y eficiente.
+              {t("about.paragraph1")}
             </p>
             <p className="mb-4">
-              Disfruto resolviendo problemas complejos y transformando ideas en
-              aplicaciones web funcionales y elegantes. Constantemente me mantengo
-              actualizado con las últimas tecnologías y mejores prácticas del desarrollo web.
+              {t("about.paragraph2")}
             </p>
             <p className="mb-6">
-              Mi objetivo es contribuir a proyectos innovadores donde pueda aplicar mi
-              experiencia técnica y creatividad para crear soluciones digitales que
-              realmente impacten a los usuarios.
+              {t("about.paragraph3")}
             </p>
             <Button variant="default" size="lg" asChild>
               <a href="/cv.pdf" download>
-                <Download className="mr-2 h-4 w-4" /> Descargar CV
+                <Download className="mr-2 h-4 w-4" /> {t("about.download")}
               </a>
             </Button>
           </div>
