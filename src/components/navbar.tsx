@@ -1,22 +1,25 @@
 
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 const navItems = [
-  { title: "Inicio", href: "#home" },
-  { title: "Sobre mí", href: "#about" },
-  { title: "Habilidades", href: "#skills" },
-  { title: "Proyectos", href: "#projects" },
-  { title: "Contacto", href: "#contact" },
+  { title: "nav.home", href: "#home" },
+  { title: "nav.about", href: "#about" },
+  { title: "nav.skills", href: "#skills" },
+  { title: "nav.projects", href: "#projects" },
+  { title: "nav.contact", href: "#contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,6 +66,7 @@ export function Navbar() {
         {isMobile ? (
           <>
             <div className="flex items-center gap-2">
+              <LanguageToggle />
               <ThemeToggle />
               <Button
                 variant="ghost"
@@ -79,14 +83,18 @@ export function Navbar() {
                   <a href="#home" className="text-2xl font-heading font-bold">
                     <span className="text-accent">Jesús</span> Guerra
                   </a>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleMenu}
-                    aria-label="Close menu"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <LanguageToggle />
+                    <ThemeToggle />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={toggleMenu}
+                      aria-label="Close menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </div>
                 </div>
                 <nav className="flex-1 flex flex-col items-center justify-center">
                   <ul className="space-y-6 text-center">
@@ -97,7 +105,7 @@ export function Navbar() {
                           className="text-xl font-medium hover:text-accent transition-colors"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          {item.title}
+                          {t(item.title)}
                         </a>
                       </li>
                     ))}
@@ -116,12 +124,13 @@ export function Navbar() {
                       href={item.href}
                       className="font-medium hover:text-accent transition-colors"
                     >
-                      {item.title}
+                      {t(item.title)}
                     </a>
                   </li>
                 ))}
               </ul>
             </nav>
+            <LanguageToggle />
             <ThemeToggle />
           </div>
         )}

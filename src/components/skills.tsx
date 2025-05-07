@@ -1,4 +1,9 @@
 
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useTheme } from "@/components/theme-provider";
+import { useState, useEffect } from "react";
+import { Progress } from "@/components/ui/progress";
+
 export interface Skill {
   name: string;
   level: number;
@@ -21,6 +26,37 @@ const skills: Skill[] = [
   { name: "AWS", level: 70, category: "tools" },
   { name: "Figma", level: 65, category: "tools" },
 ];
+
+const SkillBar = ({ name, level }: { name: string; level: number }) => {
+  const [progress, setProgress] = useState(0);
+  const { elementRef, isVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isVisible) {
+      timeout = setTimeout(() => {
+        setProgress(level);
+      }, 100);
+    } else {
+      setProgress(0);
+    }
+    return () => clearTimeout(timeout);
+  }, [isVisible, level]);
+
+  return (
+    <div ref={elementRef} className="animate-on-scroll">
+      <div className="flex justify-between mb-1">
+        <span className="font-medium">{name}</span>
+        <span className="text-muted-foreground">{level}%</span>
+      </div>
+      <Progress 
+        value={progress} 
+        className="h-2" 
+        indicatorClassName="bg-accent transition-all duration-1000 ease-in-out" 
+      />
+    </div>
+  );
+};
 
 export function Skills() {
   const categories = [
@@ -47,20 +83,7 @@ export function Skills() {
                 {skills
                   .filter((skill) => skill.category === category.id)
                   .map((skill) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-muted-foreground">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-secondary rounded-full h-2">
-                        <div
-                          className="bg-accent h-2 rounded-full"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
+                    <SkillBar key={skill.name} name={skill.name} level={skill.level} />
                   ))}
               </div>
             </div>

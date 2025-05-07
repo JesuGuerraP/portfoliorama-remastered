@@ -1,5 +1,6 @@
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/components/language-provider";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
@@ -11,15 +12,17 @@ import { Footer } from "@/components/footer";
 const Index = () => {
   return (
     <ThemeProvider defaultTheme="system">
-      <main className="min-h-screen">
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-        <Footer />
-      </main>
+      <LanguageProvider>
+        <main className="min-h-screen">
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </main>
+      </LanguageProvider>
     </ThemeProvider>
   );
 };
