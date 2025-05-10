@@ -9,6 +9,7 @@ import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import "../styles/skills.css";
+import "../styles/hero.css";
 
 const Index = () => {
   return (
