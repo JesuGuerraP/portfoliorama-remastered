@@ -9,3 +9,49 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Skill card hover effects */
+.skills-card {
+  transition: all 0.3s ease;
+}
+
+.skills-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Pulsing animation for skill dots */
+@keyframes pulse-dot {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.skill-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+/* Staggered animation for skill items */
+.skill-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.skill-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Progress bar animation */
+.skill-progress-indicator {
+  transition: width 1s ease-out;
+}
