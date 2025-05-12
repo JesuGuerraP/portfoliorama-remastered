@@ -1,16 +1,18 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export function Contact() {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { elementRef, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,14 +35,14 @@ export function Contact() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       toast({
-        title: t("contact.form.success"),
-        description: t("contact.form.success"),
+        title: "¡Mensaje enviado!",
+        description: "Gracias por contactarme. Te responderé lo antes posible.",
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       toast({
-        title: t("contact.form.error"),
-        description: t("contact.form.error"),
+        title: "Error al enviar",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.",
         variant: "destructive",
       });
     } finally {
@@ -49,105 +51,122 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="container-tight">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          <span className="text-accent">{t("contact.title")}</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          {t("contact.subtitle")}
-        </p>
+    <section id="contact" className="section-padding relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none"></div>
+      
+      {/* Animated shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full -mt-48 -mr-48 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full -mb-32 -ml-32 blur-3xl"></div>
+      </div>
+      
+      <div className="container-tight relative z-10">
+        <div ref={elementRef} className={`transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl font-bold text-center mb-4 relative inline-block">
+            <span className="text-accent">Contacto</span>
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-accent rounded-full transform scale-x-0 transition-transform duration-700 origin-left" 
+                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)' }}></span>
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            ¿Tienes un proyecto en mente? ¡Hablemos! Estoy disponible para trabajar en nuevos proyectos y colaboraciones.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
+          <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
+              <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Input
                   id="name"
                   name="name"
-                  placeholder={t("contact.form.name")}
+                  placeholder="Nombre completo"
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="border-accent/20 focus:border-accent/50 transition-all"
                 />
               </div>
-              <div>
+              <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder={t("contact.form.email")}
+                  placeholder="Correo electrónico"
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="border-accent/20 focus:border-accent/50 transition-all"
                 />
               </div>
-              <div>
+              <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder={t("contact.form.message")}
+                  placeholder="Mensaje"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="min-h-[160px]"
+                  className="min-h-[160px] border-accent/20 focus:border-accent/50 transition-all"
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full relative overflow-hidden group"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="relative z-10">
+                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                </span>
               </Button>
             </form>
           </div>
 
-          <div className="flex flex-col justify-center">
+          <div className={`flex flex-col justify-center transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="space-y-8">
-              <div className="bg-card p-6 rounded-lg border">
-                <h3 className="font-semibold text-lg mb-4">{t("contact.info.title")}</h3>
+              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500">
+                <h3 className="font-semibold text-lg mb-4">Información de contacto</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start">
-                    <Mail className="w-5 h-5 mt-1 mr-3 text-accent" />
+                  <div className="flex items-start group">
+                    <Mail className="w-5 h-5 mt-1 mr-3 text-accent group-hover:scale-110 transition-transform" />
                     <div>
-                      <p className="font-medium">{t("contact.info.email")}</p>
-                      <a href="mailto:tu.email@ejemplo.com" className="text-muted-foreground hover:text-accent">
-                        tu.email@ejemplo.com
+                      <p className="font-medium">Email</p>
+                      <a href="mailto:jesus.guerra.dev@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
+                        jesus.guerra.dev@gmail.com
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <Phone className="w-5 h-5 mt-1 mr-3 text-accent" />
+                  <div className="flex items-start group">
+                    <Phone className="w-5 h-5 mt-1 mr-3 text-accent group-hover:scale-110 transition-transform" />
                     <div>
-                      <p className="font-medium">{t("contact.info.phone")}</p>
-                      <a href="tel:+1234567890" className="text-muted-foreground hover:text-accent">
-                        +123 456 7890
+                      <p className="font-medium">Teléfono</p>
+                      <a href="tel:+584246967674" className="text-muted-foreground hover:text-accent transition-colors">
+                        +58 424-6967674
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card p-6 rounded-lg border">
-                <h3 className="font-semibold text-lg mb-4">{t("contact.social.title")}</h3>
+              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500">
+                <h3 className="font-semibold text-lg mb-4">Redes sociales</h3>
                 <div className="flex flex-col gap-4">
                   <a 
-                    href="https://linkedin.com/in/tu-perfil" 
+                    href="https://linkedin.com/in/jesus-guerra-dev" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-accent"
+                    className="flex items-center gap-3 hover:text-accent group transition-colors"
                   >
-                    <Linkedin className="w-5 h-5" />
+                    <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     <span>LinkedIn</span>
                   </a>
                   <a 
-                    href="https://github.com/tu-usuario" 
+                    href="https://github.com/jesusaviladev" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-accent"
+                    className="flex items-center gap-3 hover:text-accent group transition-colors"
                   >
-                    <Github className="w-5 h-5" />
+                    <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     <span>GitHub</span>
                   </a>
                 </div>
