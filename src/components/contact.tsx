@@ -131,7 +131,7 @@ export function Contact() {
                     <Mail className="w-5 h-5 mt-1 mr-3 text-accent group-hover:scale-110 transition-transform" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <a href="mailto:jesus.guerra.dev@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
+                      <a href="mailto:jesus.guerra.dev@gmail.com" className="text-foreground hover:text-accent transition-colors">
                         jesus.guerra.dev@gmail.com
                       </a>
                     </div>
@@ -140,7 +140,7 @@ export function Contact() {
                     <Phone className="w-5 h-5 mt-1 mr-3 text-accent group-hover:scale-110 transition-transform" />
                     <div>
                       <p className="font-medium">Teléfono</p>
-                      <a href="tel:+584246967674" className="text-muted-foreground hover:text-accent transition-colors">
+                      <a href="tel:+584246967674" className="text-foreground hover:text-accent transition-colors">
                         +58 424-6967674
                       </a>
                     </div>
@@ -155,7 +155,7 @@ export function Contact() {
                     href="https://linkedin.com/in/jesus-guerra-dev" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-accent group transition-colors"
+                    className="flex items-center gap-3 text-foreground hover:text-accent group transition-colors"
                   >
                     <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     <span>LinkedIn</span>
@@ -164,7 +164,7 @@ export function Contact() {
                     href="https://github.com/jesusaviladev" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-accent group transition-colors"
+                    className="flex items-center gap-3 text-foreground hover:text-accent group transition-colors"
                   >
                     <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     <span>GitHub</span>

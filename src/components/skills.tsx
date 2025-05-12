@@ -101,9 +101,6 @@ export function Skills() {
             <span className="absolute bottom-0 left-0 w-full h-1 bg-accent rounded-full transform scale-x-0 transition-transform duration-700 origin-left" 
                   style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)' }}></span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("skills.description") || "My professional skills and expertise across different technologies and domains"}
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
