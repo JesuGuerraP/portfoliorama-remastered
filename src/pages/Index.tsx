@@ -8,6 +8,7 @@ import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { BackToTop } from "@/components/back-to-top";
 import "../styles/skills.css";
 import "../styles/hero.css";
 
@@ -23,6 +24,7 @@ const Index = () => {
           <Projects />
           <Contact />
           <Footer />
+          <BackToTop />
         </main>
       </LanguageProvider>
     </ThemeProvider>

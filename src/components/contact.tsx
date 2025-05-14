@@ -1,23 +1,30 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Download } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { elementRef, isVisible } = useScrollAnimation();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    user_name: '',
+    user_email: '',
     message: '',
   });
+
+  useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // This is optional, can help with tracking
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -31,15 +38,28 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulación de envío de formulario
+    if (!formRef.current) return;
+    
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      toast({
-        title: "¡Mensaje enviado!",
-        description: "Gracias por contactarme. Te responderé lo antes posible.",
-      });
-      setFormData({ name: '', email: '', message: '' });
+      // Forward the email to jesusguerrapineda000@gmail.com
+      const result = await emailjs.sendForm(
+        'service_id', // Replace with your EmailJS service ID
+        'template_id', // Replace with your EmailJS template ID
+        formRef.current,
+        'public_key' // Replace with your EmailJS public key
+      );
+
+      if (result.text === 'OK') {
+        toast({
+          title: "¡Mensaje enviado!",
+          description: "Gracias por contactarme. Te responderé lo antes posible.",
+        });
+        setFormData({ user_name: '', user_email: '', message: '' });
+      } else {
+        throw new Error('Error al enviar el formulario');
+      }
     } catch (error) {
+      console.error('Error sending form:', error);
       toast({
         title: "Error al enviar",
         description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.",
@@ -74,13 +94,13 @@ export function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Input
-                  id="name"
-                  name="name"
+                  id="user_name"
+                  name="user_name"
                   placeholder="Nombre completo"
-                  value={formData.name}
+                  value={formData.user_name}
                   onChange={handleChange}
                   required
                   className="border-accent/20 focus:border-accent/50 transition-all"
@@ -88,11 +108,11 @@ export function Contact() {
               </div>
               <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Input
-                  id="email"
-                  name="email"
+                  id="user_email"
+                  name="user_email"
                   type="email"
                   placeholder="Correo electrónico"
-                  value={formData.email}
+                  value={formData.user_email}
                   onChange={handleChange}
                   required
                   className="border-accent/20 focus:border-accent/50 transition-all"
@@ -109,6 +129,9 @@ export function Contact() {
                   className="min-h-[160px] border-accent/20 focus:border-accent/50 transition-all"
                 />
               </div>
+              {/* Hidden field for the recipient */}
+              <input type="hidden" name="to_email" value="jesusguerrapineda000@gmail.com" />
+              
               <Button
                 type="submit"
                 className="w-full relative overflow-hidden group"
@@ -170,6 +193,17 @@ export function Contact() {
                     <span>GitHub</span>
                   </a>
                 </div>
+              </div>
+              
+              <div className="mt-6">
+                <Button 
+                  variant="outline" 
+                  className="w-full flex items-center justify-center gap-2 group hover:border-accent/50"
+                  onClick={() => window.open('/Jesus-Guerra-CV.pdf', '_blank')}
+                >
+                  <Download className="w-4 h-4 group-hover:text-accent transition-colors" />
+                  <span className="group-hover:text-accent transition-colors">Descargar CV</span>
+                </Button>
               </div>
             </div>
           </div>
