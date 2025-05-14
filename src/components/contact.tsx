@@ -22,8 +22,8 @@ export function Contact() {
   });
 
   useEffect(() => {
-    // Initialize EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY"); // This is optional, can help with tracking
+    // Initialize EmailJS with public key
+    emailjs.init("NdkSK1sboPt_-aCm4"); // Replace with your actual public key
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,10 +43,10 @@ export function Contact() {
     try {
       // Forward the email to jesusguerrapineda000@gmail.com
       const result = await emailjs.sendForm(
-        'service_id', // Replace with your EmailJS service ID
-        'template_id', // Replace with your EmailJS template ID
+        'service_7qyr2kf', // Your EmailJS service ID
+        'template_67jnkvw', // Your EmailJS template ID
         formRef.current,
-        'public_key' // Replace with your EmailJS public key
+        'NdkSK1sboPt_-aCm4' // Your EmailJS public key
       );
 
       if (result.text === 'OK') {
