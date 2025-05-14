@@ -23,7 +23,7 @@ export function Contact() {
 
   useEffect(() => {
     // Initialize EmailJS with public key
-    emailjs.init("NdkSK1sboPt_-aCm4"); // Replace with your actual public key
+    emailjs.init("H7gTT_HYNPMcMEUK7"); // Using the provided public key
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,10 +43,10 @@ export function Contact() {
     try {
       // Forward the email to jesusguerrapineda000@gmail.com
       const result = await emailjs.sendForm(
-        'service_7qyr2kf', // Your EmailJS service ID
-        'template_67jnkvw', // Your EmailJS template ID
+        'service_xixfqpp', // Updated service ID
+        'template_9q2cgy4', // Updated template ID
         formRef.current,
-        'NdkSK1sboPt_-aCm4' // Your EmailJS public key
+        'H7gTT_HYNPMcMEUK7' // Updated public key
       );
 
       if (result.text === 'OK') {
