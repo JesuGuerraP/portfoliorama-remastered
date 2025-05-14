@@ -39,6 +39,17 @@ export function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    }
+  };
+
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -60,7 +71,11 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#home" className="text-2xl font-heading font-bold">
+        <a 
+          href="#home" 
+          className="text-2xl font-heading font-bold"
+          onClick={(e) => handleNavClick(e, "#home")}
+        >
           <span className="text-accent">Jesús</span> Guerra
         </a>
         {isMobile ? (
@@ -80,7 +95,11 @@ export function Navbar() {
             {isMenuOpen && (
               <div className="fixed inset-0 bg-background z-50 flex flex-col">
                 <div className="flex items-center justify-between px-4 h-16">
-                  <a href="#home" className="text-2xl font-heading font-bold">
+                  <a 
+                    href="#home" 
+                    className="text-2xl font-heading font-bold"
+                    onClick={(e) => handleNavClick(e, "#home")}
+                  >
                     <span className="text-accent">Jesús</span> Guerra
                   </a>
                   <div className="flex items-center gap-2">
@@ -103,7 +122,7 @@ export function Navbar() {
                         <a
                           href={item.href}
                           className="text-xl font-medium hover:text-accent transition-colors"
-                          onClick={() => setIsMenuOpen(false)}
+                          onClick={(e) => handleNavClick(e, item.href)}
                         >
                           {t(item.title)}
                         </a>
@@ -123,6 +142,7 @@ export function Navbar() {
                     <a
                       href={item.href}
                       className="font-medium hover:text-accent transition-colors"
+                      onClick={(e) => handleNavClick(e, item.href)}
                     >
                       {t(item.title)}
                     </a>

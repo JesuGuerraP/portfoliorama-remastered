@@ -41,7 +41,15 @@ export function Contact() {
     if (!formRef.current) return;
     
     try {
-      // Forward the email to jesusguerrapineda000@gmail.com
+      // Make sure form values are being sent correctly
+      const templateParams = {
+        from_name: formData.user_name,
+        from_email: formData.user_email,
+        message: formData.message,
+        to_email: 'jesusguerrapineda000@gmail.com'
+      };
+      
+      // Send email with the updated template parameters
       const result = await emailjs.sendForm(
         'service_xixfqpp', // Updated service ID
         'template_9q2cgy4', // Updated template ID
@@ -129,7 +137,9 @@ export function Contact() {
                   className="min-h-[160px] border-accent/20 focus:border-accent/50 transition-all"
                 />
               </div>
-              {/* Hidden field for the recipient */}
+              {/* Hidden fields for the EmailJS template */}
+              <input type="hidden" name="from_name" value={formData.user_name} />
+              <input type="hidden" name="from_email" value={formData.user_email} />
               <input type="hidden" name="to_email" value="jesusguerrapineda000@gmail.com" />
               
               <Button
