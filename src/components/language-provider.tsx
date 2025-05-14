@@ -16,6 +16,7 @@ const translations = {
     "nav.about": "About me",
     "nav.skills": "Skills",
     "nav.projects": "Projects",
+    "nav.education": "Education",
     "nav.contact": "Contact",
     
     // Hero section
@@ -32,6 +33,9 @@ const translations = {
     "about.paragraph2": "I enjoy solving complex problems and transforming ideas into functional and elegant web applications. I constantly keep myself updated with the latest technologies and best practices in web development.",
     "about.paragraph3": "My goal is to contribute to innovative projects where I can apply my technical expertise and creativity to create digital solutions that truly impact users.",
     "about.download": "Download CV",
+    
+    // Education section
+    "education.title": "Education & Training",
     
     // Skills section
     "skills.title": "My Skills",
@@ -82,6 +86,7 @@ const translations = {
     "nav.about": "Sobre mí",
     "nav.skills": "Habilidades",
     "nav.projects": "Proyectos",
+    "nav.education": "Educación",
     "nav.contact": "Contacto",
     
     // Hero section
@@ -98,6 +103,9 @@ const translations = {
     "about.paragraph2": "Disfruto resolviendo problemas complejos y transformando ideas en aplicaciones web funcionales y elegantes. Constantemente me mantengo actualizado con las últimas tecnologías y mejores prácticas del desarrollo web.",
     "about.paragraph3": "Mi objetivo es contribuir a proyectos innovadores donde pueda aplicar mi experiencia técnica y creatividad para crear soluciones digitales que realmente impacten a los usuarios.",
     "about.download": "Descargar CV",
+    
+    // Education section
+    "education.title": "Educación y Formación",
     
     // Skills section
     "skills.title": "Mis Habilidades",

@@ -4,15 +4,16 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, BookOpen, Code, GraduationCap, Send } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 
 const navItems = [
-  { title: "nav.home", href: "#home" },
-  { title: "nav.about", href: "#about" },
-  { title: "nav.skills", href: "#skills" },
-  { title: "nav.projects", href: "#projects" },
-  { title: "nav.contact", href: "#contact" },
+  { title: "nav.home", href: "#home", icon: Home },
+  { title: "nav.about", href: "#about", icon: User },
+  { title: "nav.skills", href: "#skills", icon: BookOpen },
+  { title: "nav.projects", href: "#projects", icon: Code },
+  { title: "nav.education", href: "#education", icon: GraduationCap },
+  { title: "nav.contact", href: "#contact", icon: Send },
 ];
 
 export function Navbar() {
