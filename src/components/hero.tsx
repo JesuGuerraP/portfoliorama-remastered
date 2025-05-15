@@ -1,5 +1,5 @@
 
-import { ArrowDown, Code, Globe, Zap, Star } from "lucide-react";
+import { ArrowDown, Code, Globe, Zap, Star, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
 import { useEffect, useRef, useState } from "react";
