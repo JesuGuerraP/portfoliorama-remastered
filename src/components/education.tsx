@@ -1,5 +1,5 @@
 
-import { GraduationCap, Book, Calendar, School } from "lucide-react";
+import { GraduationCap, Book, Calendar, School, Code } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +15,20 @@ export function Education() {
       period: "2019 - 2024",
       description: "Formación en desarrollo de software y sistemas de información",
       icon: GraduationCap
+    },
+    {
+      degree: "Técnico en Sistemas",
+      institution: "El Servicio Nacional de Aprendizaje SENA",
+      period: "2017 - 2019",
+      description: "Formación técnica en sistemas informáticos y soporte IT",
+      icon: School
+    },
+    {
+      degree: "Bootcamp de Programación Backend",
+      institution: "Universidad Tecnológica de Bolívar",
+      period: "2023",
+      description: "Formación intensiva en desarrollo de backend y arquitectura de software",
+      icon: Code
     },
     {
       degree: "Excel - Nivel Avanzado",
