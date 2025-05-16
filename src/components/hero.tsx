@@ -99,10 +99,10 @@ export function Hero() {
             Jesús Guerra
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground mb-6 hero-subtitle">
-            Ingeniero de Software
+            {t("hero.role")}
           </h2>
           <p className="text-lg max-w-2xl mb-8 leading-relaxed">
-            Ingeniero de Software innovador y versátil con un amplio background en desarrollo full-stack, soporte IT y optimización de sistemas administrativos. Trayectoria comprobada en el diseño e implementación de soluciones de software robustas que mejoran la eficiencia operativa y la experiencia del usuario.
+            {t("hero.description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="btn-gradient group">

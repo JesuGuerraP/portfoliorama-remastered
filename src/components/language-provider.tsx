@@ -27,7 +27,8 @@ const translations = {
     "hero.contact": "Contact me",
 
     // About section
-    "about.title": "About me",
+    "about.title": "About",
+    "about.me": "me",
     "about.experience": "years",
     "about.paragraph1": "Software Engineer | Software Developer, Passionate about technology and software development, with experience in languages and tools such as Java, SQL, Spring Boot, JavaScript, React, HTML, CSS, and Python.",
     "about.paragraph2": "I have participated in academic projects where I developed web applications aimed at improving end-user efficiency, applying good development and design practices. I stand out for my focus on effective communication, teamwork, and the ability to understand client needs to create innovative solutions that exceed their expectations.",
@@ -123,7 +124,8 @@ const translations = {
     "hero.contact": "Contáctame",
 
     // About section
-    "about.title": "Sobre mí",
+    "about.title": "Sobre",
+    "about.me": "mí",
     "about.experience": "años",
     "about.paragraph1": "Ingeniero de Software | developer software, Apasionado por la tecnología y el desarrollo de software, con experiencia en lenguajes y herramientas como Java, SQL, Spring Boot, JavaScript, React, HTML, CSS, y Python.",
     "about.paragraph2": "He participado en proyectos académicos donde desarrollé aplicaciones web orientadas a mejorar la eficiencia del usuario final, aplicando buenas prácticas de desarrollo y diseño. Me destaco por mi enfoque en la comunicación efectiva, el trabajo en equipo y la capacidad de comprender las necesidades del cliente para crear soluciones innovadoras que superen sus expectativas.",
