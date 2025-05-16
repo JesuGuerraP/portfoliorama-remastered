@@ -10,24 +10,24 @@ export function Education() {
   
   const educationItems = [
     {
-      degree: "Ingeniería en Sistemas Computacionales",
-      institution: "Universidad Tecnológica de Panamá",
-      period: "2016 - 2022",
-      description: "Especialización en desarrollo de software y sistemas de información",
+      degree: "Ingeniería de Software",
+      institution: "Universidad de Cartagena",
+      period: "2019 - 2024",
+      description: "Formación en desarrollo de software y sistemas de información",
       icon: GraduationCap
     },
     {
-      degree: "Bootcamp Full Stack Developer",
-      institution: "Academlo",
-      period: "2020 - 2021",
-      description: "Desarrollo web con JavaScript, React, Node.js y bases de datos",
+      degree: "Excel - Nivel Avanzado",
+      institution: "El Servicio Nacional de Aprendizaje SENA",
+      period: "2024",
+      description: "Curso especializado en funciones avanzadas de Excel",
       icon: School
     },
     {
-      degree: "Certificación en AWS Cloud",
-      institution: "Amazon Web Services",
-      period: "2022",
-      description: "AWS Solutions Architect Associate",
+      degree: "Curso de Inglés - Nivel Avanzado (en progreso)",
+      institution: "Open English",
+      period: "2024 - Actualidad",
+      description: "Formación en idioma inglés con enfoque conversacional y profesional",
       icon: Book
     }
   ];

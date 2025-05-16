@@ -42,13 +42,13 @@ export function About() {
               Sobre <span className="text-accent">mí</span>
             </h2>
             <p className={`mb-4 transition-all duration-700 delay-100 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-              Me llamo Jesús Guerra, soy un programador con más de cuatro años de experiencia en desarrollo web y enfocado principalmente en la creación de aplicaciones con React y Next.js.
+              Ingeniero de Software | developer software, Apasionado por la tecnología y el desarrollo de software, con experiencia en lenguajes y herramientas como Java, SQL, Spring Boot, JavaScript, React, HTML, CSS, y Python.
             </p>
             <p className={`mb-4 transition-all duration-700 delay-200 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-              Soy un apasionado de las nuevas tecnologías y me encanta aprender constantemente. Me especializo en crear interfaces modernas, atractivas y optimizadas para brindar la mejor experiencia de usuario posible.
+              He participado en proyectos académicos donde desarrollé aplicaciones web orientadas a mejorar la eficiencia del usuario final, aplicando buenas prácticas de desarrollo y diseño. Me destaco por mi enfoque en la comunicación efectiva, el trabajo en equipo y la capacidad de comprender las necesidades del cliente para crear soluciones innovadoras que superen sus expectativas.
             </p>
             <p className={`mb-6 transition-all duration-700 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-              He trabajado en diversos proyectos, desde sitios web corporativos hasta aplicaciones complejas SaaS, siempre enfocándome en ofrecer soluciones de calidad que cumplan con los requerimientos del cliente.
+              Mi objetivo es crecer profesionalmente y contribuir a proyectos significativos que generen un impacto positivo en la sociedad. Estoy siempre dispuesto a enfrentar nuevos desafíos que impulsen mi desarrollo como profesional y como persona.
             </p>
             <div className={`transition-all duration-700 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <Button variant="default" size="lg" asChild className="relative overflow-hidden group">

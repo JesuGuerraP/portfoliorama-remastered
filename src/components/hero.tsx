@@ -1,5 +1,5 @@
 
-import { ArrowDown, Code, Globe, Zap, Star, Send, Database, Server, Component } from "lucide-react";
+import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, Html, Java, Javascript, Firebase, Mysql } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
 import { useEffect, useRef, useState } from "react";
@@ -82,13 +82,13 @@ export function Hero() {
           <div className="flex flex-wrap gap-2 mb-2">
             <TechBadge icon={Code} text="React" className="animate-delay-100" />
             <TechBadge icon={Globe} text="Next.js" className="animate-delay-200" />
-            <TechBadge icon={Zap} text="JavaScript" className="animate-delay-300" />
+            <TechBadge icon={Javascript} text="JavaScript" className="animate-delay-300" />
             <TechBadge icon={Star} text="TailwindCSS" className="animate-delay-400" />
-            <TechBadge icon={Server} text="Java" className="animate-delay-500" />
+            <TechBadge icon={Java} text="Java" className="animate-delay-500" />
             <TechBadge icon={Component} text="SpringBoot" className="animate-delay-600" />
-            <TechBadge icon={Database} text="MySQL" className="animate-delay-700" />
-            <TechBadge icon={Zap} text="Firebase" className="animate-delay-800" />
-            <TechBadge icon={Code} text="Bootstrap" className="animate-delay-900" />
+            <TechBadge icon={Mysql} text="MySQL" className="animate-delay-700" />
+            <TechBadge icon={Firebase} text="Firebase" className="animate-delay-800" />
+            <TechBadge icon={Html} text="Bootstrap" className="animate-delay-900" />
           </div>
           
           <p className="text-accent font-medium glow-text">{t("hero.greeting")}</p>
@@ -99,10 +99,10 @@ export function Hero() {
             Jesús Guerra
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground mb-6 hero-subtitle">
-            {t("hero.role")}
+            Ingeniero de Software
           </h2>
           <p className="text-lg max-w-2xl mb-8 leading-relaxed">
-            {t("hero.description")}
+            Ingeniero de Software innovador y versátil con un amplio background en desarrollo full-stack, soporte IT y optimización de sistemas administrativos. Trayectoria comprobada en el diseño e implementación de soluciones de software robustas que mejoran la eficiencia operativa y la experiencia del usuario.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="btn-gradient group">
@@ -117,7 +117,7 @@ export function Hero() {
             <Button variant="outline" size="lg" asChild className="border-accent/20 hover:border-accent/50 hover:bg-accent/5">
               <a href="#contact" className="flex items-center gap-2">
                 {t("hero.contact")}
-                <Send className="w-4 h-4" />
+                <ArrowDown className="w-4 h-4" />
               </a>
             </Button>
           </div>
