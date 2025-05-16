@@ -1,5 +1,5 @@
 
-import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, Html, Java, Javascript, Firebase, Mysql } from "lucide-react";
+import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, FileCode, Coffee, FileJson, Flame, Database as DatabaseIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
 import { useEffect, useRef, useState } from "react";
@@ -82,13 +82,13 @@ export function Hero() {
           <div className="flex flex-wrap gap-2 mb-2">
             <TechBadge icon={Code} text="React" className="animate-delay-100" />
             <TechBadge icon={Globe} text="Next.js" className="animate-delay-200" />
-            <TechBadge icon={Javascript} text="JavaScript" className="animate-delay-300" />
+            <TechBadge icon={FileJson} text="JavaScript" className="animate-delay-300" />
             <TechBadge icon={Star} text="TailwindCSS" className="animate-delay-400" />
-            <TechBadge icon={Java} text="Java" className="animate-delay-500" />
+            <TechBadge icon={Coffee} text="Java" className="animate-delay-500" />
             <TechBadge icon={Component} text="SpringBoot" className="animate-delay-600" />
-            <TechBadge icon={Mysql} text="MySQL" className="animate-delay-700" />
-            <TechBadge icon={Firebase} text="Firebase" className="animate-delay-800" />
-            <TechBadge icon={Html} text="Bootstrap" className="animate-delay-900" />
+            <TechBadge icon={DatabaseIcon} text="MySQL" className="animate-delay-700" />
+            <TechBadge icon={Flame} text="Firebase" className="animate-delay-800" />
+            <TechBadge icon={FileCode} text="Bootstrap" className="animate-delay-900" />
           </div>
           
           <p className="text-accent font-medium glow-text">{t("hero.greeting")}</p>
