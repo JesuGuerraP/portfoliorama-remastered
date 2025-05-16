@@ -5,43 +5,43 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function Education() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { elementRef, isVisible } = useScrollAnimation();
   
   const educationItems = [
     {
-      degree: "Ingeniería de Software",
-      institution: "Universidad de Cartagena",
-      period: "2019 - 2024",
-      description: "Formación en desarrollo de software y sistemas de información",
+      degree: "education.software.degree",
+      institution: "education.software.institution",
+      period: "education.software.period",
+      description: "education.software.description",
       icon: GraduationCap
     },
     {
-      degree: "Técnico en Sistemas",
-      institution: "El Servicio Nacional de Aprendizaje SENA",
-      period: "2017 - 2019",
-      description: "Formación técnica en sistemas informáticos y soporte IT",
+      degree: "education.technician.degree",
+      institution: "education.technician.institution", 
+      period: "education.technician.period",
+      description: "education.technician.description",
       icon: School
     },
     {
-      degree: "Bootcamp de Programación Backend",
-      institution: "Universidad Tecnológica de Bolívar",
-      period: "2023",
-      description: "Formación intensiva en desarrollo de backend y arquitectura de software",
+      degree: "education.bootcamp.degree",
+      institution: "education.bootcamp.institution",
+      period: "education.bootcamp.period",
+      description: "education.bootcamp.description", 
       icon: Code
     },
     {
-      degree: "Excel - Nivel Avanzado",
-      institution: "El Servicio Nacional de Aprendizaje SENA",
-      period: "2024",
-      description: "Curso especializado en funciones avanzadas de Excel",
+      degree: "education.excel.degree",
+      institution: "education.excel.institution",
+      period: "education.excel.period",
+      description: "education.excel.description",
       icon: School
     },
     {
-      degree: "Curso de Inglés - Nivel Avanzado (en progreso)",
-      institution: "Open English",
-      period: "2024 - Actualidad",
-      description: "Formación en idioma inglés con enfoque conversacional y profesional",
+      degree: "education.english.degree",
+      institution: "education.english.institution",
+      period: "education.english.period",
+      description: "education.english.description",
       icon: Book
     }
   ];
@@ -50,7 +50,7 @@ export function Education() {
     <section id="education" className="section-padding bg-gradient-to-br from-background to-secondary/30 relative overflow-hidden">
       <div className="container-tight relative z-10">
         <h2 className="text-3xl font-bold mb-10 text-center">
-          <span className="text-accent glow-text mr-2">Educación</span> y Formación
+          <span className="text-accent glow-text mr-2">{t("education.title")}</span> {t("education.subtitle")}
         </h2>
         
         <div 
@@ -72,16 +72,16 @@ export function Education() {
                   <item.icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <CardTitle className="text-xl">{item.degree}</CardTitle>
+                  <CardTitle className="text-xl">{t(item.degree)}</CardTitle>
                   <CardDescription className="flex items-center mt-1">
-                    <Calendar className="h-4 w-4 mr-1 inline" /> {item.period}
+                    <Calendar className="h-4 w-4 mr-1 inline" /> {t(item.period)}
                   </CardDescription>
                 </div>
               </CardHeader>
               
               <CardContent>
-                <p className="font-medium text-muted-foreground mb-2">{item.institution}</p>
-                <p className="text-sm">{item.description}</p>
+                <p className="font-medium text-muted-foreground mb-2">{t(item.institution)}</p>
+                <p className="text-sm">{t(item.description)}</p>
               </CardContent>
             </Card>
           ))}

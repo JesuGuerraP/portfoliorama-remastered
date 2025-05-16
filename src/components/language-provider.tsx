@@ -21,22 +21,48 @@ const translations = {
     
     // Hero section
     "hero.greeting": "Hi, my name is",
-    "hero.role": "Full Stack Web Developer",
-    "hero.description": "I build responsive web applications with great user experience. Specialized in React, Next.js and Node.js to create modern and scalable digital solutions.",
+    "hero.role": "Software Engineer",
+    "hero.description": "Innovative and versatile Software Engineer with extensive background in full-stack development, IT support, and administrative systems optimization. Proven track record in designing and implementing robust software solutions that improve operational efficiency and user experience.",
     "hero.projects": "View projects",
     "hero.contact": "Contact me",
 
     // About section
     "about.title": "About me",
     "about.experience": "years",
-    "about.paragraph1": "I am a full stack web developer with over 5 years of experience, specialized in creating exceptional digital experiences. My approach combines visually appealing design with clean and efficient code.",
-    "about.paragraph2": "I enjoy solving complex problems and transforming ideas into functional and elegant web applications. I constantly keep myself updated with the latest technologies and best practices in web development.",
-    "about.paragraph3": "My goal is to contribute to innovative projects where I can apply my technical expertise and creativity to create digital solutions that truly impact users.",
+    "about.paragraph1": "Software Engineer | Software Developer, Passionate about technology and software development, with experience in languages and tools such as Java, SQL, Spring Boot, JavaScript, React, HTML, CSS, and Python.",
+    "about.paragraph2": "I have participated in academic projects where I developed web applications aimed at improving end-user efficiency, applying good development and design practices. I stand out for my focus on effective communication, teamwork, and the ability to understand client needs to create innovative solutions that exceed their expectations.",
+    "about.paragraph3": "My goal is to grow professionally and contribute to meaningful projects that generate a positive impact on society. I am always willing to face new challenges that drive my development as a professional and as a person.",
     "about.download": "Download CV",
     
     // Education section
-    "education.title": "Education & Training",
+    "education.title": "Education",
+    "education.subtitle": "& Training",
     
+    "education.software.degree": "Software Engineering",
+    "education.software.institution": "Universidad de Cartagena",
+    "education.software.period": "2019 - 2024",
+    "education.software.description": "Training in software development and information systems",
+    
+    "education.technician.degree": "Systems Technician",
+    "education.technician.institution": "El Servicio Nacional de Aprendizaje SENA",
+    "education.technician.period": "2017 - 2019",
+    "education.technician.description": "Technical training in computer systems and IT support",
+    
+    "education.bootcamp.degree": "Backend Programming Bootcamp",
+    "education.bootcamp.institution": "Universidad Tecnológica de Bolívar",
+    "education.bootcamp.period": "2023",
+    "education.bootcamp.description": "Intensive training in backend development and software architecture",
+    
+    "education.excel.degree": "Excel - Advanced Level",
+    "education.excel.institution": "El Servicio Nacional de Aprendizaje SENA",
+    "education.excel.period": "2024",
+    "education.excel.description": "Specialized course in advanced Excel functions",
+    
+    "education.english.degree": "English Course - Advanced Level (in progress)",
+    "education.english.institution": "Open English",
+    "education.english.period": "2024 - Present",
+    "education.english.description": "English language training with a conversational and professional focus",
+
     // Skills section
     "skills.title": "My Skills",
     "skills.frontend": "Frontend",
@@ -91,22 +117,48 @@ const translations = {
     
     // Hero section
     "hero.greeting": "Hola, me llamo",
-    "hero.role": "Desarrollador Web Full Stack",
-    "hero.description": "Construyo aplicaciones y sitios web responsivos con gran experiencia de usuario. Especializado en React, Next.js y Node.js para crear soluciones digitales modernas y escalables.",
+    "hero.role": "Ingeniero de Software",
+    "hero.description": "Ingeniero de Software innovador y versátil con un amplio background en desarrollo full-stack, soporte IT y optimización de sistemas administrativos. Trayectoria comprobada en el diseño e implementación de soluciones de software robustas que mejoran la eficiencia operativa y la experiencia del usuario.",
     "hero.projects": "Ver proyectos",
     "hero.contact": "Contáctame",
 
     // About section
     "about.title": "Sobre mí",
     "about.experience": "años",
-    "about.paragraph1": "Soy un desarrollador web full stack con más de 5 años de experiencia, especializado en crear experiencias digitales excepcionales. Mi enfoque combina diseño visualmente atractivo con código limpio y eficiente.",
-    "about.paragraph2": "Disfruto resolviendo problemas complejos y transformando ideas en aplicaciones web funcionales y elegantes. Constantemente me mantengo actualizado con las últimas tecnologías y mejores prácticas del desarrollo web.",
-    "about.paragraph3": "Mi objetivo es contribuir a proyectos innovadores donde pueda aplicar mi experiencia técnica y creatividad para crear soluciones digitales que realmente impacten a los usuarios.",
+    "about.paragraph1": "Ingeniero de Software | developer software, Apasionado por la tecnología y el desarrollo de software, con experiencia en lenguajes y herramientas como Java, SQL, Spring Boot, JavaScript, React, HTML, CSS, y Python.",
+    "about.paragraph2": "He participado en proyectos académicos donde desarrollé aplicaciones web orientadas a mejorar la eficiencia del usuario final, aplicando buenas prácticas de desarrollo y diseño. Me destaco por mi enfoque en la comunicación efectiva, el trabajo en equipo y la capacidad de comprender las necesidades del cliente para crear soluciones innovadoras que superen sus expectativas.",
+    "about.paragraph3": "Mi objetivo es crecer profesionalmente y contribuir a proyectos significativos que generen un impacto positivo en la sociedad. Estoy siempre dispuesto a enfrentar nuevos desafíos que impulsen mi desarrollo como profesional y como persona.",
     "about.download": "Descargar CV",
     
     // Education section
-    "education.title": "Educación y Formación",
+    "education.title": "Educación",
+    "education.subtitle": "y Formación",
     
+    "education.software.degree": "Ingeniería de Software",
+    "education.software.institution": "Universidad de Cartagena",
+    "education.software.period": "2019 - 2024",
+    "education.software.description": "Formación en desarrollo de software y sistemas de información",
+    
+    "education.technician.degree": "Técnico en Sistemas",
+    "education.technician.institution": "El Servicio Nacional de Aprendizaje SENA",
+    "education.technician.period": "2017 - 2019",
+    "education.technician.description": "Formación técnica en sistemas informáticos y soporte IT",
+    
+    "education.bootcamp.degree": "Bootcamp de Programación Backend",
+    "education.bootcamp.institution": "Universidad Tecnológica de Bolívar",
+    "education.bootcamp.period": "2023",
+    "education.bootcamp.description": "Formación intensiva en desarrollo de backend y arquitectura de software",
+    
+    "education.excel.degree": "Excel - Nivel Avanzado",
+    "education.excel.institution": "El Servicio Nacional de Aprendizaje SENA",
+    "education.excel.period": "2024",
+    "education.excel.description": "Curso especializado en funciones avanzadas de Excel",
+    
+    "education.english.degree": "Curso de Inglés - Nivel Avanzado (en progreso)",
+    "education.english.institution": "Open English",
+    "education.english.period": "2024 - Actualidad",
+    "education.english.description": "Formación en idioma inglés con enfoque conversacional y profesional",
+
     // Skills section
     "skills.title": "Mis Habilidades",
     "skills.frontend": "Frontend",
