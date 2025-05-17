@@ -79,46 +79,30 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden py-16 md:py-24">
+    <section id="contact" className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none"></div>
       
-      {/* Animated background elements */}
+      {/* Animated shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full -mt-48 -mr-48 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full -mb-32 -ml-32 blur-3xl"></div>
       </div>
       
       <div className="container-tight relative z-10">
-        {/* New slide-up animation with scale */}
-        <div 
-          ref={elementRef} 
-          className={`transition-all duration-1000 transform ${
-            isVisible 
-              ? 'opacity-100 translate-y-0 scale-100' 
-              : 'opacity-0 translate-y-20 scale-95'
-          }`}
-        >
+        <div ref={elementRef} className={`transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl font-bold text-center mb-4 relative inline-block">
             <span className="text-accent">{t("contact.title")}</span>
-            <span className={`absolute bottom-0 left-0 w-full h-1 bg-accent rounded-full transition-transform duration-1000 origin-left ${
-              isVisible ? 'scale-x-100' : 'scale-x-0'
-            }`}></span>
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-accent rounded-full transform scale-x-0 transition-transform duration-700 origin-left" 
+                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)' }}></span>
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             {t("contact.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
-          {/* Form with slide animation */}
-          <div 
-            className={`transition-all duration-800 delay-200 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 -translate-x-16'
-            }`}
-          >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div className="transition-all duration-500 hover:translate-y-[-2px]">
                 <Input
                   id="user_name"
@@ -171,16 +155,9 @@ export function Contact() {
             </form>
           </div>
 
-          {/* Contact info with slide animation */}
-          <div 
-            className={`flex flex-col justify-center transition-all duration-800 delay-400 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 translate-x-16'
-            }`}
-          >
-            <div className="space-y-6">
-              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1">
+          <div className={`flex flex-col justify-center transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="space-y-8">
+              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500">
                 <h3 className="font-semibold text-lg mb-4">{t("contact.info.title")}</h3>
                 <div className="space-y-4">
                   <div className="flex items-start group">
@@ -204,7 +181,7 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1">
+              <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-all duration-500">
                 <h3 className="font-semibold text-lg mb-4">{t("contact.social.title")}</h3>
                 <div className="flex flex-col gap-4">
                   <a 
