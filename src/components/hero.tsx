@@ -1,15 +1,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, FileCode, Coffee, FileJson, Flame, Database as DatabaseIcon, Plus } from "lucide-react";
+import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, FileCode, Coffee, FileJson, Flame, Database as DatabaseIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
 import "../styles/hero.css";
 import { useIsMobile } from "@/hooks/use-mobile";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const FloatingParticle = ({ delay = 0 }) => {
   return (
@@ -39,21 +34,6 @@ export function Hero() {
   const heroRef = useRef(null);
   const particles = Array.from({ length: 20 }, (_, i) => i);
   const isMobile = useIsMobile();
-  
-  const mainTechBadges = [
-    { icon: Code, text: "React", delay: "100" },
-    { icon: Coffee, text: "Java", delay: "200" },
-    { icon: Flame, text: "Firebase", delay: "300" },
-  ];
-  
-  const secondaryTechBadges = [
-    { icon: Globe, text: "Next.js", delay: "200" },
-    { icon: FileJson, text: "JavaScript", delay: "300" },
-    { icon: Star, text: "TailwindCSS", delay: "400" },
-    { icon: Component, text: "SpringBoot", delay: "600" },
-    { icon: DatabaseIcon, text: "MySQL", delay: "700" },
-    { icon: FileCode, text: "Bootstrap", delay: "900" },
-  ];
   
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -101,41 +81,10 @@ export function Hero() {
 
       <div className="container-tight relative z-10 px-4 md:px-6 pt-20 md:pt-24">
         <div className="flex flex-col items-start gap-4 animate-fade-in max-w-3xl mx-auto">
-          {/* Tech badges - Improved layout */}
+          {/* Tech badges - Single row on desktop, hidden on mobile */}
           <div className="flex flex-wrap gap-2 mb-4 w-full">
-            {isMobile ? (
-              <div className="grid grid-cols-3 w-full gap-2">
-                {mainTechBadges.map((badge, index) => (
-                  <div key={index} className={`col-span-1 flex justify-center`}>
-                    <TechBadge 
-                      icon={badge.icon} 
-                      text={badge.text} 
-                      className={`animate-delay-${badge.delay}`} 
-                    />
-                  </div>
-                ))}
-                <div className="col-span-3 flex justify-center mt-1">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <div className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent animate-float cursor-pointer hover:bg-accent/20 transition-colors">
-                        <Plus className="h-3.5 w-3.5" />
-                        <span>+{secondaryTechBadges.length}</span>
-                      </div>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center" className="bg-card border border-border/50 p-2 w-fit grid grid-cols-2 gap-2">
-                      {secondaryTechBadges.map((badge, index) => (
-                        <div key={index} className="flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium hover:bg-accent/10 transition-colors">
-                          {React.createElement(badge.icon, { className: "h-3.5 w-3.5" })}
-                          <span>{badge.text}</span>
-                        </div>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-5 gap-2">
-                {/* For desktop: Show all badges in a better grid layout */}
+            {!isMobile && (
+              <div className="flex flex-wrap gap-2">
                 <TechBadge icon={Code} text="React" className="animate-delay-100" />
                 <TechBadge icon={Globe} text="Next.js" className="animate-delay-200" />
                 <TechBadge icon={FileJson} text="JavaScript" className="animate-delay-300" />
@@ -163,9 +112,9 @@ export function Hero() {
             {t("hero.description")}
           </p>
           
-          {/* Updated button layout - side by side for mobile too */}
-          <div className="flex flex-row flex-wrap gap-3 w-full">
-            <Button asChild size={isMobile ? "default" : "lg"} className="btn-gradient group">
+          {/* Updated button layout - side by side for both mobile and desktop */}
+          <div className="flex flex-row gap-3 w-full">
+            <Button asChild size={isMobile ? "sm" : "lg"} className="btn-gradient group">
               <a href="#projects" className="relative overflow-hidden">
                 <span className="relative z-10 flex items-center gap-2">
                   {t("hero.projects")}
@@ -174,7 +123,7 @@ export function Hero() {
                 <span className="absolute inset-0 w-full h-full bg-white/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
               </a>
             </Button>
-            <Button variant="outline" size={isMobile ? "default" : "lg"} asChild className="border-accent/20 hover:border-accent/50 hover:bg-accent/5">
+            <Button variant="outline" size={isMobile ? "sm" : "lg"} asChild className="border-accent/20 hover:border-accent/50 hover:bg-accent/5">
               <a href="#contact" className="flex items-center gap-2">
                 {t("hero.contact")}
               </a>
