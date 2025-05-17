@@ -1,8 +1,8 @@
 
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowDown, Code, Globe, Zap, Star, Database, Server, Component, FileCode, Coffee, FileJson, Flame, Database as DatabaseIcon, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/language-provider";
-import { useEffect, useRef, useState } from "react";
 import "../styles/hero.css";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
