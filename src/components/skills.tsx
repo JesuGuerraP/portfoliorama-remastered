@@ -97,7 +97,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="section-padding relative">
+    <section id="skills" className="section-padding py-20 md:py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none"></div>
       <div className="container-tight relative z-10">
         <div ref={elementRef} className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -108,11 +108,11 @@ export function Skills() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 px-2 md:px-0">
           {categories.slice(0, 3).map((category) => (
             <div
               key={category.id}
-              className="bg-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 relative overflow-hidden group"
+              className="bg-card rounded-xl p-5 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mt-16 -mr-16 transition-transform duration-300 group-hover:scale-125"></div>
               <div className="flex items-center mb-6 gap-3">
@@ -132,7 +132,7 @@ export function Skills() {
           ))}
 
           <div 
-            className="bg-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 relative overflow-hidden group"
+            className="bg-card rounded-xl p-5 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mt-16 -mr-16 transition-transform duration-300 group-hover:scale-125"></div>
             <div className="flex items-center mb-6 gap-3">
